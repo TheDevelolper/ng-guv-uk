@@ -1,89 +1,79 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ serviceName() }}</title>
-  </head>
-  <body>
-    @if (showCookieBanner()) {
-      <div
-        class="govuk-cookie-banner"
-        data-nosnippet
-        role="region"
-        aria-label="Cookies on {{ serviceName() }}"
-      >
-        <div class="govuk-cookie-banner__message govuk-width-container">
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-              <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-                Cookies on {{ serviceName() }}
-              </h2>
-              <div class="govuk-cookie-banner__content">
-                <p class="govuk-body">We use some essential cookies to make this service work.</p>
-                <p class="govuk-body">
-                  We’d also like to use analytics cookies so we can understand how you use the
-                  service and make improvements.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="govuk-button-group">
-            <button
-              type="submit"
-              value="yes"
-              name="cookies[analytics]"
-              class="govuk-button"
-              data-module="govuk-button"
-              (click)="dismissCookie()"
-            >
-              Accept analytics cookies
-            </button>
-            <button
-              type="submit"
-              value="no"
-              name="cookies[analytics]"
-              class="govuk-button"
-              data-module="govuk-button"
-              (click)="dismissCookie()"
-            >
-              Reject analytics cookies
-            </button>
-            <a class="govuk-link" href="#">View cookies</a>
+@if (showCookieBanner()) {
+  <div
+    class="govuk-cookie-banner"
+    data-nosnippet
+    role="region"
+    aria-label="Cookies on {{ serviceName() }}"
+  >
+    <div class="govuk-cookie-banner__message govuk-width-container">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-cookie-banner__heading govuk-heading-m">
+            Cookies on {{ serviceName() }}
+          </h2>
+          <div class="govuk-cookie-banner__content">
+            <p class="govuk-body">We use some essential cookies to make this service work.</p>
+            <p class="govuk-body">
+              We’d also like to use analytics cookies so we can understand how you use the service
+              and make improvements.
+            </p>
           </div>
         </div>
       </div>
-    }
-    <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link"
-      >Skip to main content</a
-    >
-    <header class="govuk-template__header">
-      <gov-header></gov-header>
-
-      <section
-        aria-label="Service information"
-        class="govuk-service-navigation"
-        data-module="govuk-service-navigation"
-      >
-        <div class="govuk-width-container">
-          <div class="govuk-service-navigation__container">
-            <span class="govuk-service-navigation__service-name">
-              <a href="#" class="govuk-service-navigation__link"> {{ serviceName() }} </a>
-            </span>
-            <gov-service-navigation [items]="navigationItems()"></gov-service-navigation>
-          </div>
-        </div>
-      </section>
-    </header>
-
-    <div class="govuk-width-container">
-      <main class="govuk-main-wrapper" id="main-content">
-        <router-outlet></router-outlet>
-      </main>
+      <div class="govuk-button-group">
+        <button
+          type="submit"
+          value="yes"
+          name="cookies[analytics]"
+          class="govuk-button"
+          data-module="govuk-button"
+          (click)="dismissCookie()"
+        >
+          Accept analytics cookies
+        </button>
+        <button
+          type="submit"
+          value="no"
+          name="cookies[analytics]"
+          class="govuk-button"
+          data-module="govuk-button"
+          (click)="dismissCookie()"
+        >
+          Reject analytics cookies
+        </button>
+        <a class="govuk-link" href="#">View cookies</a>
+      </div>
     </div>
+  </div>
+}
+<a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link"
+  >Skip to main content</a
+>
+<header class="govuk-template__header">
+  <gov-header></gov-header>
 
-    <footer class="govuk-template__footer">
-      <gov-footer></gov-footer>
-    </footer>
-  </body>
-</html>
+  <section
+    aria-label="Service information"
+    class="govuk-service-navigation"
+    data-module="govuk-service-navigation"
+  >
+    <div class="govuk-width-container">
+      <div class="govuk-service-navigation__container">
+        <span class="govuk-service-navigation__service-name">
+          <a href="#" class="govuk-service-navigation__link"> {{ serviceName() }} </a>
+        </span>
+        <gov-service-navigation [items]="navigationItems()"></gov-service-navigation>
+      </div>
+    </div>
+  </section>
+</header>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<footer class="govuk-template__footer">
+  <gov-footer></gov-footer>
+</footer>
