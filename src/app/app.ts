@@ -15,7 +15,7 @@ import { Footer } from './components/molecules/footer/footer';
 export class App {
 
   protected navigationItems = signal<AppRoutes>(routes);
-  protected readonly serviceName = signal('Kiran Résumé');
+  protected readonly serviceName = signal('Résumé Portal');
   protected showCookieBanner = signal(true);
   protected dismissCookie(): void{
     this.showCookieBanner.set(false);
