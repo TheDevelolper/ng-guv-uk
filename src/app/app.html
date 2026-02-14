@@ -6,7 +6,7 @@
     <title>{{ serviceName() }}</title>
   </head>
   <body>
-    <form action="/form-handler" method="post" novalidate>
+    @if (showCookieBanner()) {
       <div
         class="govuk-cookie-banner"
         data-nosnippet
@@ -35,6 +35,7 @@
               name="cookies[analytics]"
               class="govuk-button"
               data-module="govuk-button"
+              (click)="dismissCookie()"
             >
               Accept analytics cookies
             </button>
@@ -44,6 +45,7 @@
               name="cookies[analytics]"
               class="govuk-button"
               data-module="govuk-button"
+              (click)="dismissCookie()"
             >
               Reject analytics cookies
             </button>
@@ -51,8 +53,7 @@
           </div>
         </div>
       </div>
-    </form>
-
+    }
     <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link"
       >Skip to main content</a
     >

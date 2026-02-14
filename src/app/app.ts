@@ -13,7 +13,11 @@ import { Footer } from './components/molecules/footer/footer';
   styleUrl: './app.scss'
 })
 export class App {
-  public navigationItems = signal<AppRoutes>(routes);
 
+  protected navigationItems = signal<AppRoutes>(routes);
   protected readonly serviceName = signal('Kiran Résumé');
+  protected showCookieBanner = signal(true);
+  protected dismissCookie(): void{
+    this.showCookieBanner.set(false);
+  }
 }
