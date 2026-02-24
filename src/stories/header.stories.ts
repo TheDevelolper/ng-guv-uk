@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { fn } from 'storybook/test';
 import { Header } from '../app/components/molecules/header/header';
 
 
@@ -21,6 +20,19 @@ type Story = StoryObj<Header>;
 
 export const Default: Story = {
   args: {
+    
   },
+  render: (args) => ({
+    template: `
+      <gov-header>
+        <a href="#" class="govuk-header__homepage-link"> 
+        
+        <img src="assets/images/govuk-crest.png" alt="GOV.UK" class="govuk-header__logo">
+
+        Kiran Randhawa 
+        </a>
+      </gov-header>`,
+    props: args
+  })
 };
 

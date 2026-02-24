@@ -27,7 +27,12 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/govuk-frontend/dist/govuk/assets"
               }
+
             ],
             "styles": [
               "src/styles.scss"

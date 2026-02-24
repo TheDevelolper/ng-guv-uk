@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { Logo } from '../../atoms/logo/logo';
 
 @Component({
   selector: 'gov-header',
-  imports: [],
+  imports: [Logo],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
