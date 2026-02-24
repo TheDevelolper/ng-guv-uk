@@ -5,7 +5,6 @@ import { ServiceNavigation } from './components/molecules/service-navigation/ser
 import { routes, AppRoutes } from './app.routes';
 import { Footer } from './components/molecules/footer/footer';
 
-
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Header, ServiceNavigation, Footer],
@@ -14,7 +13,7 @@ import { Footer } from './components/molecules/footer/footer';
 })
 export class App {
 
-  protected navigationItems = signal<AppRoutes>(routes);
+  protected navigationItems = signal<AppRoutes>(routes.filter(route => route.navLabel));
   protected readonly serviceName = signal('Résumé Portal');
   protected showCookieBanner = signal(true);
   protected dismissCookie(): void{
