@@ -1,42 +1,6 @@
 {
     "pipes": [],
-    "interfaces": [
-        {
-            "name": "NavigationItem",
-            "id": "interface-NavigationItem-ef94d7ec8f97d7a41e0ddb881c57294a95b01a6e6d8ca3daedc67b940d94234cc133f9c904ea33192d7be50827c4c8d94be3379213d0f0bbc19248e2b47df1d4",
-            "file": "src/app/components/molecules/service-navigation/service-navigation.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "import { Component, input, signal } from '@angular/core';\nimport { RouterLink } from '@angular/router';\n\n@Component({\n  selector: 'gov-service-navigation',\n  imports: [RouterLink],\n  templateUrl: './service-navigation.html',\n  styleUrl: './service-navigation.scss',\n})\nexport class ServiceNavigation {\n  public items = input<NavigationItem[]>([]);\n  public selected = signal<NavigationItem | null>(null);\n\n  public itemSelected(item: NavigationItem) {\n    this.selected.set(item);\n  }\n\n}\n\nexport interface NavigationItem {\n  label: string,\n  href: string\n}",
-            "properties": [
-                {
-                    "name": "href",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 22
-                },
-                {
-                    "name": "label",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 21
-                }
-            ],
-            "indexSignatures": [],
-            "kind": 172,
-            "methods": [],
-            "extends": []
-        }
-    ],
+    "interfaces": [],
     "injectables": [],
     "guards": [],
     "interceptors": [],
@@ -44,8 +8,46 @@
     "directives": [],
     "components": [
         {
+            "name": "AboutMe",
+            "id": "component-AboutMe-1b1d9abb9a7e81e7aa8d8ec20c5b3b4a64d004f5dc47c29031b1c6f141b1655c207825a40bf4a69a91e4cc9d36332bae2ff3664b5d03b21ecf28b13013ba19c7",
+            "file": "src/app/components/pages/about-me/about-me.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gov-about-me",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./about-me.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'gov-about-me',\n  imports: [],\n  templateUrl: './about-me.html',\n  styleUrl: './about-me.scss',\n})\nexport class AboutMe {\n\n}\n",
+            "styleUrl": "./about-me.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<section>\n  <h1 class=\"govuk-heading-xl\">Hi I'm Kiran 👋🏽</h1>\n\n  <article>\n    <p class=\"govuk-body\">\n      I am a full stack software developer working with over 15 years experience. I've worked for a\n      variety of organisations, from small startups to large enterprises, and have a passion for\n      building great software. I'm currently open to new opportunities so please feel free to reach\n      out to me on\n      <a href=\"https://www.linkedin.com/in/heyitskiran/\" class=\"govuk-link\">LinkedIn</a>\n    </p>\n\n    <p class=\"govuk-body\">\n      I hope to add some examples of my work here soon. In the meantime welcome to my site, and\n      thanks for stopping by!\n    </p>\n  </article>\n</section>\n"
+        },
+        {
             "name": "App",
-            "id": "component-App-d863f47aaf6ba3eeb39579b05b83c4c6e46b08e8a71a811970f469a05625f4c9a698f9f8046305130a75c62f593b15468508818fc5cbfcb4ed5ac94dcfe656e0",
+            "id": "component-App-5c89eee90697f93c41a70c2a25a85db35fba362c9ef4ef02aede31a31c0acf3dc9abd0c3ef6d614761f11bb140e96a017c3d767134456a12df7d0fccea9c30a5",
             "file": "src/app/app.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -65,7 +67,21 @@
             "propertiesClass": [
                 {
                     "name": "navigationItems",
-                    "defaultValue": "signal<NavigationItem[]>(navItems)",
+                    "defaultValue": "signal<AppRoutes>(routes)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        124
+                    ]
+                },
+                {
+                    "name": "serviceName",
+                    "defaultValue": "signal('Résumé Portal')",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
@@ -74,12 +90,13 @@
                     "description": "",
                     "line": 18,
                     "modifierKind": [
-                        125
+                        124,
+                        148
                     ]
                 },
                 {
-                    "name": "title",
-                    "defaultValue": "signal('govuk-frontend-harness')",
+                    "name": "showCookieBanner",
+                    "defaultValue": "signal(true)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
@@ -88,12 +105,25 @@
                     "description": "",
                     "line": 19,
                     "modifierKind": [
-                        124,
-                        148
+                        124
                     ]
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "dismissCookie",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        124
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -109,18 +139,97 @@
                 {
                     "name": "ServiceNavigation",
                     "type": "injectable"
+                },
+                {
+                    "name": "Footer"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, signal } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { Header } from './components/molecules/header/header';\nimport { NavigationItem, ServiceNavigation } from './components/molecules/service-navigation/service-navigation';\n\nconst navItems: NavigationItem[] = [ {\n  label: \"test\", \n  href: \"test\"\n}]\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet, Header, ServiceNavigation],\n  templateUrl: './app.html',\n  styleUrl: './app.scss'\n})\nexport class App {\npublic navigationItems = signal<NavigationItem[]>(navItems);\n  protected readonly title = signal('govuk-frontend-harness');\n}\n",
+            "sourceCode": "import { Component, signal } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { Header } from './components/molecules/header/header';\nimport { ServiceNavigation } from './components/molecules/service-navigation/service-navigation';\nimport { routes, AppRoutes } from './app.routes';\nimport { Footer } from './components/molecules/footer/footer';\n\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet, Header, ServiceNavigation, Footer],\n  templateUrl: './app.html',\n  styleUrl: './app.scss'\n})\nexport class App {\n\n  protected navigationItems = signal<AppRoutes>(routes);\n  protected readonly serviceName = signal('Résumé Portal');\n  protected showCookieBanner = signal(true);\n  protected dismissCookie(): void{\n    this.showCookieBanner.set(false);\n  }\n}\n",
             "styleUrl": "./app.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Application</title>\n  </head>\n  <body>\n    <header>\n      <gov-header> </gov-header>\n      <gov-service-navigation [items]=\"navigationItems()\"></gov-service-navigation>\n    </header>\n\n    <main>\n      <router-outlet></router-outlet>\n    </main>\n\n    <footer></footer>\n  </body>\n</html>\n"
+            "templateData": "@if (showCookieBanner()) {\n  <div\n    class=\"govuk-cookie-banner\"\n    data-nosnippet\n    role=\"region\"\n    aria-label=\"Cookies on {{ serviceName() }}\"\n  >\n    <div class=\"govuk-cookie-banner__message govuk-width-container\">\n      <div class=\"govuk-grid-row\">\n        <div class=\"govuk-grid-column-two-thirds\">\n          <h2 class=\"govuk-cookie-banner__heading govuk-heading-m\">\n            Cookies on {{ serviceName() }}\n          </h2>\n          <div class=\"govuk-cookie-banner__content\">\n            <p class=\"govuk-body\">We use some essential cookies to make this service work.</p>\n            <p class=\"govuk-body\">\n              We’d also like to use analytics cookies so we can understand how you use the service\n              and make improvements.\n            </p>\n          </div>\n        </div>\n      </div>\n      <div class=\"govuk-button-group\">\n        <button\n          type=\"submit\"\n          value=\"yes\"\n          name=\"cookies[analytics]\"\n          class=\"govuk-button\"\n          data-module=\"govuk-button\"\n          (click)=\"dismissCookie()\"\n        >\n          Accept analytics cookies\n        </button>\n        <button\n          type=\"submit\"\n          value=\"no\"\n          name=\"cookies[analytics]\"\n          class=\"govuk-button\"\n          data-module=\"govuk-button\"\n          (click)=\"dismissCookie()\"\n        >\n          Reject analytics cookies\n        </button>\n        <a class=\"govuk-link\" href=\"#\">View cookies</a>\n      </div>\n    </div>\n  </div>\n}\n<a href=\"#main-content\" class=\"govuk-skip-link\" data-module=\"govuk-skip-link\"\n  >Skip to main content</a\n>\n<header class=\"govuk-template__header\">\n  <gov-header></gov-header>\n\n  <section\n    aria-label=\"Service information\"\n    class=\"govuk-service-navigation\"\n    data-module=\"govuk-service-navigation\"\n  >\n    <div class=\"govuk-width-container\">\n      <div class=\"govuk-service-navigation__container\">\n        <span class=\"govuk-service-navigation__service-name\">\n          <a href=\"#\" class=\"govuk-service-navigation__link\"> {{ serviceName() }} </a>\n        </span>\n        <gov-service-navigation [items]=\"navigationItems()\"></gov-service-navigation>\n      </div>\n    </div>\n  </section>\n</header>\n\n<div class=\"govuk-width-container\">\n  <main class=\"govuk-main-wrapper\" id=\"main-content\">\n    <router-outlet></router-outlet>\n  </main>\n</div>\n\n<footer class=\"govuk-template__footer\">\n  <gov-footer></gov-footer>\n</footer>\n"
+        },
+        {
+            "name": "DownloadResume",
+            "id": "component-DownloadResume-a6f48d9c49e32738fd6bb5bc497c16b5d7ad767ddadde08972af4b1a39a8ff9c6737f3e27515cb500fa034da20d1ca68a80a5c6acb7d3f485a5d1f274c02295e",
+            "file": "src/app/components/pages/download-resume/download-resume.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gov-download-resume",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./download-resume.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'gov-download-resume',\n  imports: [],\n  templateUrl: './download-resume.html',\n  styleUrl: './download-resume.scss',\n})\nexport class DownloadResume {\n\n}\n",
+            "styleUrl": "./download-resume.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<h1 class=\"govuk-heading-xl\">Download my resume here</h1>\n"
+        },
+        {
+            "name": "Footer",
+            "id": "component-Footer-3d129450b59cac5fbaa092da08fa568b3e4f568f04ced5944bf9b42c1890abf3439ff381bfa876f3e84751d9cbdf5d8a80e72acca6f4d0e34a322989c2ef1107",
+            "file": "src/app/components/molecules/footer/footer.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gov-footer",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./footer.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'gov-footer',\n  imports: [],\n  templateUrl: './footer.html',\n  styleUrl: './footer.scss',\n})\nexport class Footer {\n\n}\n",
+            "styleUrl": "./footer.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"govuk-footer\">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-footer__meta\">\n      <div class=\"govuk-footer__meta-item govuk-footer__meta-item--grow\">\n        <span class=\"govuk-footer__licence-description\">\n          All content is available under the\n          <a\n            class=\"govuk-footer__link\"\n            href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"\n            rel=\"license\"\n            >Open Government Licence v3.0</a\n          >, except where otherwise stated\n        </span>\n      </div>\n      <div class=\"govuk-footer__meta-item\">\n        <a\n          class=\"govuk-footer__link govuk-footer__copyright-logo\"\n          href=\"https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/\"\n        >\n          © Crown copyright\n        </a>\n      </div>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "Header",
@@ -158,11 +267,11 @@
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"govuk-header\">\n  <div class=\"govuk-header__container govuk-width-container\">\n    <div class=\"govuk-header__logo\">\n      <a href=\"#\" class=\"govuk-header__homepage-link\">\n        <svg\n          focusable=\"false\"\n          role=\"img\"\n          xmlns=\"http://www.w3.org/2000/svg\"\n          viewBox=\"0 0 324 60\"\n          height=\"30\"\n          width=\"162\"\n          fill=\"currentcolor\" class=\"govuk-header__logotype\" aria-label=\"GOV.UK\">\n          <title>GOV.UK</title>\n          <g>\n            <circle cx=\"20\" cy=\"17.6\" r=\"3.7\" />\n            <circle cx=\"10.2\" cy=\"23.5\" r=\"3.7\" />\n            <circle cx=\"3.7\" cy=\"33.2\" r=\"3.7\" />\n            <circle cx=\"31.7\" cy=\"30.6\" r=\"3.7\" />\n            <circle cx=\"43.3\" cy=\"17.6\" r=\"3.7\" />\n            <circle cx=\"53.2\" cy=\"23.5\" r=\"3.7\" />\n            <circle cx=\"59.7\" cy=\"33.2\" r=\"3.7\" />\n            <circle cx=\"31.7\" cy=\"30.6\" r=\"3.7\" />\n            <path d=\"M33.1,9.8c.2-.1.3-.3.5-.5l4.6,2.4v-6.8l-4.6,1.5c-.1-.2-.3-.3-.5-.5l1.9-5.9h-6.7l1.9,5.9c-.2.1-.3.3-.5.5l-4.6-1.5v6.8l4.6-2.4c.1.2.3.3.5.5l-2.6,8c-.9,2.8,1.2,5.7,4.1,5.7h0c3,0,5.1-2.9,4.1-5.7l-2.6-8ZM37,37.9s-3.4,3.8-4.1,6.1c2.2,0,4.2-.5,6.4-2.8l-.7,8.5c-2-2.8-4.4-4.1-5.7-3.8.1,3.1.5,6.7,5.8,7.2,3.7.3,6.7-1.5,7-3.8.4-2.6-2-4.3-3.7-1.6-1.4-4.5,2.4-6.1,4.9-3.2-1.9-4.5-1.8-7.7,2.4-10.9,3,4,2.6,7.3-1.2,11.1,2.4-1.3,6.2,0,4,4.6-1.2-2.8-3.7-2.2-4.2.2-.3,1.7.7,3.7,3,4.2,1.9.3,4.7-.9,7-5.9-1.3,0-2.4.7-3.9,1.7l2.4-8c.6,2.3,1.4,3.7,2.2,4.5.6-1.6.5-2.8,0-5.3l5,1.8c-2.6,3.6-5.2,8.7-7.3,17.5-7.4-1.1-15.7-1.7-24.5-1.7h0c-8.8,0-17.1.6-24.5,1.7-2.1-8.9-4.7-13.9-7.3-17.5l5-1.8c-.5,2.5-.6,3.7,0,5.3.8-.8,1.6-2.3,2.2-4.5l2.4,8c-1.5-1-2.6-1.7-3.9-1.7,2.3,5,5.2,6.2,7,5.9,2.3-.4,3.3-2.4,3-4.2-.5-2.4-3-3.1-4.2-.2-2.2-4.6,1.6-6,4-4.6-3.7-3.7-4.2-7.1-1.2-11.1,4.2,3.2,4.3,6.4,2.4,10.9,2.5-2.8,6.3-1.3,4.9,3.2-1.8-2.7-4.1-1-3.7,1.6.3,2.3,3.3,4.1,7,3.8,5.4-.5,5.7-4.2,5.8-7.2-1.3-.2-3.7,1-5.7,3.8l-.7-8.5c2.2,2.3,4.2,2.7,6.4,2.8-.7-2.3-4.1-6.1-4.1-6.1h10.6,0Z\" />\n          </g>\n          <circle class=\"govuk-logo-dot\" cx=\"226\" cy=\"36\" r=\"7.3\" />\n          <path d=\"M93.94 41.25c.4 1.81 1.2 3.21 2.21 4.62 1 1.4 2.21 2.41 3.61 3.21s3.21 1.2 5.22 1.2 3.61-.4 4.82-1c1.4-.6 2.41-1.4 3.21-2.41.8-1 1.4-2.01 1.61-3.01s.4-2.01.4-3.01v.14h-10.86v-7.02h20.07v24.08h-8.03v-5.56c-.6.8-1.38 1.61-2.19 2.41-.8.8-1.81 1.2-2.81 1.81-1 .4-2.21.8-3.41 1.2s-2.41.4-3.81.4a18.56 18.56 0 0 1-14.65-6.63c-1.6-2.01-3.01-4.41-3.81-7.02s-1.4-5.62-1.4-8.83.4-6.02 1.4-8.83a20.45 20.45 0 0 1 19.46-13.65c3.21 0 4.01.2 5.82.8 1.81.4 3.61 1.2 5.02 2.01 1.61.8 2.81 2.01 4.01 3.21s2.21 2.61 2.81 4.21l-7.63 4.41c-.4-1-1-1.81-1.61-2.61-.6-.8-1.4-1.4-2.21-2.01-.8-.6-1.81-1-2.81-1.4-1-.4-2.21-.4-3.61-.4-2.01 0-3.81.4-5.22 1.2-1.4.8-2.61 1.81-3.61 3.21s-1.61 2.81-2.21 4.62c-.4 1.81-.6 3.71-.6 5.42s.8 5.22.8 5.22Zm57.8-27.9c3.21 0 6.22.6 8.63 1.81 2.41 1.2 4.82 2.81 6.62 4.82S170.2 24.39 171 27s1.4 5.62 1.4 8.83-.4 6.02-1.4 8.83-2.41 5.02-4.01 7.02-4.01 3.61-6.62 4.82-5.42 1.81-8.63 1.81-6.22-.6-8.63-1.81-4.82-2.81-6.42-4.82-3.21-4.41-4.01-7.02-1.4-5.62-1.4-8.83.4-6.02 1.4-8.83 2.41-5.02 4.01-7.02 4.01-3.61 6.42-4.82 5.42-1.81 8.63-1.81Zm0 36.73c1.81 0 3.61-.4 5.02-1s2.61-1.81 3.61-3.01 1.81-2.81 2.21-4.41c.4-1.81.8-3.61.8-5.62 0-2.21-.2-4.21-.8-6.02s-1.2-3.21-2.21-4.62c-1-1.2-2.21-2.21-3.61-3.01s-3.21-1-5.02-1-3.61.4-5.02 1c-1.4.8-2.61 1.81-3.61 3.01s-1.81 2.81-2.21 4.62c-.4 1.81-.8 3.61-.8 5.62 0 2.41.2 4.21.8 6.02.4 1.81 1.2 3.21 2.21 4.41s2.21 2.21 3.61 3.01c1.4.8 3.21 1 5.02 1Zm36.32 7.96-12.24-44.15h9.83l8.43 32.77h.4l8.23-32.77h9.83L200.3 58.04h-12.24Zm74.14-7.96c2.18 0 3.51-.6 3.51-.6 1.2-.6 2.01-1 2.81-1.81s1.4-1.81 1.81-2.81a13 13 0 0 0 .8-4.01V13.9h8.63v28.15c0 2.41-.4 4.62-1.4 6.62-.8 2.01-2.21 3.61-3.61 5.02s-3.41 2.41-5.62 3.21-4.62 1.2-7.02 1.2-5.02-.4-7.02-1.2c-2.21-.8-4.01-1.81-5.62-3.21s-2.81-3.01-3.61-5.02-1.4-4.21-1.4-6.62V13.9h8.63v26.95c0 1.61.2 3.01.8 4.01.4 1.2 1.2 2.21 2.01 2.81.8.8 1.81 1.4 2.81 1.81 0 0 1.34.6 3.51.6Zm34.22-36.18v18.92l15.65-18.92h10.82l-15.03 17.32 16.03 26.83h-10.21l-11.44-20.21-5.62 6.22v13.99h-8.83V13.9\" />\n        </svg>\n      </a>\n    </div>\n  </div>\n</div>"
+            "templateData": "<div class=\"govuk-header\">\n  <div class=\"govuk-header__container govuk-width-container\">\n    <div class=\"govuk-header__logo\" style=\"display: flex\">\n      <a href=\"#\" class=\"govuk-header__homepage-link\">\n        <span>Kiran Randawa</span>\n      </a>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "ServiceNavigation",
-            "id": "component-ServiceNavigation-ef94d7ec8f97d7a41e0ddb881c57294a95b01a6e6d8ca3daedc67b940d94234cc133f9c904ea33192d7be50827c4c8d94be3379213d0f0bbc19248e2b47df1d4",
+            "id": "component-ServiceNavigation-615bf1bc78b225d8d59e5b96206f7edb8f7933d394e61a99e5032bdb70674154f57f8cc53da12943a40c33028b938e7f3c6a69cb4db8e891a32cba67aa98ee54",
             "file": "src/app/components/molecules/service-navigation/service-navigation.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -183,11 +292,11 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "NavigationItem[]",
+                    "type": "AppRoutes",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 13,
                     "modifierKind": [
                         125
                     ],
@@ -197,15 +306,30 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "selected",
-                    "defaultValue": "signal<NavigationItem | null>(null)",
+                    "name": "router",
+                    "defaultValue": "inject(Router)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 16,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
+                    "name": "selected",
+                    "defaultValue": "signal<AppRoute | null>(null)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
                     "modifierKind": [
                         125
                     ]
@@ -217,7 +341,7 @@
                     "args": [
                         {
                             "name": "item",
-                            "type": "NavigationItem",
+                            "type": "AppRoute",
                             "optional": false,
                             "dotDotDotToken": false,
                             "deprecated": false,
@@ -227,7 +351,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 14,
+                    "line": 18,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -236,7 +360,7 @@
                     "jsdoctags": [
                         {
                             "name": "item",
-                            "type": "NavigationItem",
+                            "type": "AppRoute",
                             "optional": false,
                             "dotDotDotToken": false,
                             "deprecated": false,
@@ -256,18 +380,67 @@
             "imports": [
                 {
                     "name": "RouterLink"
+                },
+                {
+                    "name": "RouterLinkActive"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input, signal } from '@angular/core';\nimport { RouterLink } from '@angular/router';\n\n@Component({\n  selector: 'gov-service-navigation',\n  imports: [RouterLink],\n  templateUrl: './service-navigation.html',\n  styleUrl: './service-navigation.scss',\n})\nexport class ServiceNavigation {\n  public items = input<NavigationItem[]>([]);\n  public selected = signal<NavigationItem | null>(null);\n\n  public itemSelected(item: NavigationItem) {\n    this.selected.set(item);\n  }\n\n}\n\nexport interface NavigationItem {\n  label: string,\n  href: string\n}",
+            "sourceCode": "import { Component, inject, input, signal } from '@angular/core';\nimport { NavigationEnd, Route, Router, RouterEvent, RouterLink, RouterLinkActive, Routes } from '@angular/router';\nimport { AppRoute, AppRoutes } from '../../../app.routes';\nimport { takeUntilDestroyed } from '@angular/core/rxjs-interop';\n\n@Component({\n  selector: 'gov-service-navigation',\n  imports: [RouterLink, RouterLinkActive],\n  templateUrl: './service-navigation.html',\n  styleUrl: './service-navigation.scss',\n})\nexport class ServiceNavigation {\n  public items = input<AppRoutes>([]);\n  public selected = signal<AppRoute | null>(null);\n\n  private readonly router = inject(Router);\n\n  public itemSelected(item: AppRoute) {\n    this.selected.set(item);\n  }\n\n  constructor() {\n    this.\n    router.events.pipe(\n      takeUntilDestroyed()).subscribe((value) => {\n         if (value instanceof NavigationEnd) {\n          (document.activeElement as HTMLElement)?.blur();\n         }\n    });\n  }\n}\n",
             "styleUrl": "./service-navigation.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 20
+            },
             "extends": [],
-            "templateData": "<div class=\"govuk-service-navigation\"\n  data-module=\"govuk-service-navigation\">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-service-navigation__container\">\n      <nav aria-label=\"Menu\" class=\"govuk-service-navigation__wrapper\">\n        <button type=\"button\" class=\"govuk-service-navigation__toggle govuk-js-service-navigation-toggle\" aria-controls=\"navigation\" hidden aria-hidden=\"true\">\n          Menu\n        </button>\n\n        <ul class=\"govuk-service-navigation__list\" id=\"navigation\">\n  \n\n          @for(item of items(); track item.label) {\n\n            <li class=\"govuk-service-navigation__item\">\n                <a [routerLink]=\"[item.href]\"\n                ariaCurrentWhenActive=\"page\"\n                class=\"govuk-service-navigation__link\">\n                    {{item.label}}\n                </a>\n            </li>\n\n          }\n          \n          <li class=\"govuk-service-navigation__item govuk-service-navigation__item--active\">\n            <a class=\"govuk-service-navigation__link\" href=\"#\" >\n            \n\n              <strong class=\"govuk-service-navigation__active-fallback\">Navigation item 2</strong>\n            </a>\n          </li>\n\n   \n        </ul>\n      </nav>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"govuk-service-navigation\"\n  data-module=\"govuk-service-navigation\">\n  <div class=\"govuk-width-container\">\n    <div class=\"govuk-service-navigation__container\">\n      <nav aria-label=\"Menu\" class=\"govuk-service-navigation__wrapper\">\n        <button type=\"button\" class=\"govuk-service-navigation__toggle govuk-js-service-navigation-toggle\" aria-controls=\"navigation\" hidden aria-hidden=\"true\">\n          Menu\n        </button>\n\n        <ul class=\"govuk-service-navigation__list\" id=\"navigation\">\n\n          @for(item of items(); track item.path) {\n\n            <li class=\"govuk-service-navigation__item\"  \n            routerLinkActive=\"govuk-service-navigation__item--active\">\n                <a \n                [routerLink]=\"`/${item.path}`\"\n                ariaCurrentWhenActive=\"page\"\n                class=\"govuk-service-navigation__link\">\n                    {{item.navLabel}}\n                </a>\n            </li>\n\n          }\n   \n        </ul>\n      </nav>\n    </div>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "Styles",
+            "id": "component-Styles-ac5246bb43ccbfc1a1c6101df28063af69717bfa4bc2c8a68f5c7edc975c365550246012803cd83feaacfcff3884657c3f6c9e078c77414f545df15ce961899e",
+            "file": "src/app/components/pages/styles/styles.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "gov-styles",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./styles.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'gov-styles',\n  imports: [],\n  templateUrl: './styles.html',\n  styleUrl: './styles.scss',\n})\nexport class Styles {\n\n}\n",
+            "styleUrl": "./styles.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<h1 class=\"govuk-heading-xl\">Styles</h1>\n"
         }
     ],
     "modules": [],
@@ -284,28 +457,41 @@
                 "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes)\n  ]\n}"
             },
             {
-                "name": "navItems",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/app.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "NavigationItem[]",
-                "defaultValue": "[ {\n  label: \"test\", \n  href: \"test\"\n}]"
-            },
-            {
                 "name": "routes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/app.routes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Routes",
-                "defaultValue": "[]"
+                "type": "AppRoutes",
+                "defaultValue": "[\n    {\n        navLabel: \"About Me\",\n        path: 'about-me',\n        component: AboutMe\n    },\n    {\n        navLabel: \"My Resume\",\n        path: 'download-resume',\n        component: DownloadResume\n    }\n]"
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "AppRoute",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "unknown",
+                "file": "src/app/app.routes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 194
+            },
+            {
+                "name": "AppRoutes",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "AppRoute[]",
+                "file": "src/app/app.routes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 189
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
             "src/app/app.config.ts": [
@@ -320,18 +506,6 @@
                     "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes)\n  ]\n}"
                 }
             ],
-            "src/app/app.ts": [
-                {
-                    "name": "navItems",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/app.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "NavigationItem[]",
-                    "defaultValue": "[ {\n  label: \"test\", \n  href: \"test\"\n}]"
-                }
-            ],
             "src/app/app.routes.ts": [
                 {
                     "name": "routes",
@@ -340,14 +514,39 @@
                     "file": "src/app/app.routes.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Routes",
-                    "defaultValue": "[]"
+                    "type": "AppRoutes",
+                    "defaultValue": "[\n    {\n        navLabel: \"About Me\",\n        path: 'about-me',\n        component: AboutMe\n    },\n    {\n        navLabel: \"My Resume\",\n        path: 'download-resume',\n        component: DownloadResume\n    }\n]"
                 }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "src/app/app.routes.ts": [
+                {
+                    "name": "AppRoute",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "unknown",
+                    "file": "src/app/app.routes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 194
+                },
+                {
+                    "name": "AppRoutes",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "AppRoute[]",
+                    "file": "src/app/app.routes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 189
+                }
+            ]
+        }
     },
     "routes": {
         "name": "<root>",
@@ -379,20 +578,39 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/app.routes.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "AppRoute",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.routes.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "AppRoutes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/app.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "App",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
-                "filePath": "src/app/app.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "navItems",
+                "filePath": "src/app/components/molecules/footer/footer.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Footer",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -412,16 +630,34 @@
                 "linktype": "component",
                 "name": "ServiceNavigation",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/molecules/service-navigation/service-navigation.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "NavigationItem",
+                "filePath": "src/app/components/pages/about-me/about-me.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AboutMe",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/pages/download-resume/download-resume.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DownloadResume",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/pages/styles/styles.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Styles",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             }
         ]
