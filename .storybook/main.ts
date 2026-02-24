@@ -1,18 +1,18 @@
-import type { StorybookConfig } from '@storybook/angular';
-import { StorybookConfigVite } from '@storybook/builder-vite';
+import { StorybookConfig } from '@analogjs/storybook-angular';
 
-const config: StorybookConfig & StorybookConfigVite = {
-  "stories": [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+const config: StorybookConfig = {
+  stories: [
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
-  "addons": [
-    "@storybook/addon-a11y",
-    "@storybook/addon-docs"
+  addons: [
+    '@storybook/addon-a11y',
+    '@storybook/addon-docs',
   ],
-  "framework": "@storybook/angular",
-  "core" : {
-    "builder": "@storybook/builder-vite"
-  }
+  framework: {
+    name: '@analogjs/storybook-angular',
+    options: {},
+  },
 };
+
 export default config;
